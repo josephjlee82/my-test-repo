@@ -1,38 +1,30 @@
-isPrime = 1
+puts "To what number would you like to see prime numbers up to?"
+input = gets
 
+max = input.to_i
 total = 0
+x = 2
 
-while (isPrime <= 50)
-
-	x = false
-	
-	w = (isPrime - 1)
-
+while (x <= max)
+	isPrime = true
 	y = 2
-	
-	while (y <=w)
-		
-		if ((isPrime%y) == 0)
-		
-			x = true
-	
+
+	while (y <= (x-1))
+
+		if ((x%y) == 0)
+			isPrime = false
 		end
 		
-		y = y + 1
-		
+		y=y+1		
 	end
 	
-	if (x == false)
+	if (isPrime == true)
+		puts "#{x}\n"
 	
-		puts isPrime
-	
-		total = total + isPrime
-	
+		total = total + x
 	end
 	
-	isPrime = isPrime + 1
-
+	x=x+1
 end
 
-puts total
-
+puts "The sum of all primes up to #{max} is: #{total}."
