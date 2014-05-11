@@ -1,15 +1,26 @@
 # Sorting Function.
-# Reads from file "sort_test.txt" and sorts the numbers found within
+# Reads various files 
 
-file_handle = File.open(File.dirname(__FILE__) + "/sort_test.txt", "r") or die "Unable to open file"
 
 unsorted_random = []
 unsorted_worst = []
 unsorted_almost = []
 
+file_handle = File.open(File.dirname(__FILE__) + "/unsorted_random.txt", "r") or die "Unable to open file"
 file_handle.each_line do |line|
-	numbers.push(line.to_i)
+	unsorted_random.push(line.to_i)
 end
+
+file_handle = File.open(File.dirname(__FILE__) + "/unsorted_random.txt", "r") or die "Unable to open file"
+file_handle.each_line do |line|
+	unsorted_random.push(line.to_i)
+end
+
+file_handle = File.open(File.dirname(__FILE__) + "/unsorted_random.txt", "r") or die "Unable to open file"
+file_handle.each_line do |line|
+	unsorted_random.push(line.to_i)
+end
+
 
 # Crude bubble sort.  Still not done, it makes unnecessary comparisons even after the 
 # array is sorted.  Sean...fix this so that it stops once it is sorted.
