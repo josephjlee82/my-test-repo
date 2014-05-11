@@ -1,16 +1,35 @@
+# Sorting Function.
+# Reads from file "sort_test.txt" and sorts the numbers found within
 
-puts Dir.pwd
+file_handle = File.open(File.dirname(__FILE__) + "/sort_test.txt", "r") or die "Unable to open file"
 
-#File.open(File.dirname(__FILE__) + '/text.txt')
+numbers = []
 
-f = File.open("/Users/joelee/Forks/my-test-repo/sean-code/joe-developed/sort_test.txt", "r") or die "Unable to open file"
-
-file_contents = []
-
-f.each_line do |line|
-	file_contents.push(line)
+file_handle.each_line do |line|
+	numbers.push(line.to_i)
 end
 
-file_contents.each do |line|
-	puts line
+
+def bubble_sort(numbers)
+	
+	for i in 0..(numbers.length - 2)
+		
+		for j in 0..(numbers.length-2-i)
+			
+			if numbers[j] > numbers[j+1]
+				temp = numbers[j+1]
+				numbers[j+1] = numbers[j]
+				numbers[j] = temp
+			end
+		end
+	end
 end
+
+
+puts "Original set of numbers"
+puts numbers.join(", ")
+
+bubble_sort(numbers)
+
+puts "\nSorted set of numbers"
+puts numbers.join(", ")
