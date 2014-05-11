@@ -1,11 +1,9 @@
 # Sorting Function.
 # Reads from file "sort_test.txt" and sorts the numbers found within
 
-file_handle = File.open(File.dirname(__FILE__) + "/sort_test.txt", "r") or die "Unable to open file"
+file_handle = File.open(File.dirname(__FILE__) + "/unsorted_random.txt", "r") or die "Unable to open file"
 
-unsorted_random = []
-unsorted_worst = []
-unsorted_almost = []
+numbers = []
 
 file_handle.each_line do |line|
 	numbers.push(line.to_i)
