@@ -1,24 +1,25 @@
 # Sorting Function.
-# Reads various files 
+# Reads various files (randomly sorted, worst case sorted, mostly sorted) and runs various 
+# sorting algorithms.  Shows the # of operations for each. 
 
 
 unsorted_random = []
 unsorted_worst = []
 unsorted_almost = []
 
-file_handle = File.open(File.dirname(__FILE__) + "/unsorted_random.txt", "r") or die "Unable to open file"
+file_handle = File.open(File.dirname(__FILE__) + "/unsorted_files/unsorted_random.txt", "r") or die "Unable to open file"
 file_handle.each_line do |line|
 	unsorted_random.push(line.to_i)
 end
 
-file_handle = File.open(File.dirname(__FILE__) + "/unsorted_random.txt", "r") or die "Unable to open file"
+file_handle = File.open(File.dirname(__FILE__) + "/unsorted_files/unsorted_worst.txt", "r") or die "Unable to open file"
 file_handle.each_line do |line|
-	unsorted_random.push(line.to_i)
+	unsorted_worst.push(line.to_i)
 end
 
-file_handle = File.open(File.dirname(__FILE__) + "/unsorted_random.txt", "r") or die "Unable to open file"
+file_handle = File.open(File.dirname(__FILE__) + "/unsorted_files/unsorted_almost.txt", "r") or die "Unable to open file"
 file_handle.each_line do |line|
-	unsorted_random.push(line.to_i)
+	unsorted_almost.push(line.to_i)
 end
 
 
@@ -54,11 +55,33 @@ def sean_sort(numbers)
 
 end
 
-puts "Original set of numbers.  Has " + numbers.length.to_s + " numbers."
-puts numbers.join(", ")
+# Random numbers sorted by bubble
+puts "Original set of numbers in unsorted_random.txt has " + unsorted_random.length.to_s + " numbers."
+puts unsorted_random.join(", ")
 
-compare_count, swap_count = bubble_sort(numbers)
+compare_count, swap_count = bubble_sort(unsorted_random)
 
 puts "\nSorted set of numbers"
-puts numbers.join(", ")
+puts unsorted_random.join(", ")
 puts "Took #{compare_count} compare operations and #{swap_count} swap operations."
+puts "----------------------------------------------------"
+# Worst case sort (reversed numbers) sorted by bubble
+puts "Original set of numbers in unsorted_worst.txt has " + unsorted_worst.length.to_s + " numbers."
+puts unsorted_worst.join(", ")
+
+compare_count, swap_count = bubble_sort(unsorted_worst)
+
+puts "\nSorted set of numbers"
+puts unsorted_worst.join(", ")
+puts "Took #{compare_count} compare operations and #{swap_count} swap operations."
+puts "-----------------------------------------------------"
+# Mostly sorted list sorted by bubble
+puts "Original set of numbers in unsorted_almost.txt has " + unsorted_almost.length.to_s + " numbers."
+puts unsorted_almost.join(", ")
+
+compare_count, swap_count = bubble_sort(unsorted_almost)
+
+puts "\nSorted set of numbers"
+puts unsorted_almost.join(", ")
+puts "Took #{compare_count} compare operations and #{swap_count} swap operations."
+puts "-----------------------------------------------------"

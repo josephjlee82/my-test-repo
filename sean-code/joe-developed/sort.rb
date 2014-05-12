@@ -1,7 +1,7 @@
 # Sorting Function.
 # Reads from file "sort_test.txt" and sorts the numbers found within
 
-file_handle = File.open(File.dirname(__FILE__) + "/unsorted_random.txt", "r") or die "Unable to open file"
+file_handle = File.open(File.dirname(__FILE__) + "/unsorted_files/unsorted_random.txt", "r") or die "Unable to open file"
 
 numbers = []
 
@@ -28,7 +28,11 @@ def bubble_sort(numbers)
 				numbers[j] = temp
 				swap_count += 1
 			end
+			
+		puts numbers.join(", ")
+
 		end
+
 	end
 
 	return compare_count, swap_count
